@@ -1,4 +1,4 @@
-.header {
+ /* .header {
     display: flex;
     justify-content:space-between;
     border: 1px solid black;
@@ -15,10 +15,10 @@ font-size:24px;
 .nav-items>ul>li{
     padding:10px;
     margin:10px;
-}
+}  */
 
 /* //rescard */
-.res-container{
+ /* .res-container{
     display:flex;
     flex-wrap: wrap;
 }
@@ -69,4 +69,9 @@ font-size:24px;
 .user-card{
     padding:10px;
     border:1px solid black;
-}
+}  */
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
