@@ -67,6 +67,7 @@ const Body =()=>{
   //               }, 
 
   // ]
+  // console.log("Bondy rendere:",listOfRestaurants)
   useEffect(()=>{
     fetchData();
 
