@@ -1,10 +1,11 @@
 import { useState } from "react"
 import ItemList from "./ItemList"
-
-const RestaurantCategory=({data})=>{
-    const [showItems, setShowItems]= useState(false)
+// showItems props coming parent from restarutant menu 
+const RestaurantCategory=({data , showItems,setShowIndex})=>{
+    // const [showItems, setShowItems]= useState(false)
     const handleClick=()=>{
-        setShowItems(!showItems)
+        // setShowItems(!showItems)
+        setShowIndex()
     }
     console.log(data)
     return(
@@ -18,7 +19,6 @@ const RestaurantCategory=({data})=>{
    { showItems && <ItemList items={data.itemCards}/>}
 
 </div>
-{/* Accordion body */}
 </div>
     )
 }

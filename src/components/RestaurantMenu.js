@@ -9,6 +9,7 @@ const RestaurantMenu=()=>{
     const {resId}= useParams()
 
     const resInfo= useRestarauntMenu(resId);
+    const [showIndex,setShowIndex]= useState(null)
     // useEffect(()=>{
     //    fetchMenu(); 
     // },[])
@@ -36,9 +37,13 @@ return  (
 
         {/* categories accordions */}
 
-        {categories.map((category) => (
-        <RestaurantCategory  key={category?.card?.card?.title}data={category?.card?.card}/>
-        ))}
+        {categories.map((category,index) => (
+            //controlled component
+        <RestaurantCategory  key={category?.card?.card?.title}data={category?.card?.card}
+       //resturant category collapse and expan should be control by restarant menu
+        showItems={index === showIndex ? true : false}
+        setShowIndex={()=>setShowIndex(index)}/>
+      ))}
        </div>
     )
 }
