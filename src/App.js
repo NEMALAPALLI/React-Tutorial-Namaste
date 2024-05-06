@@ -8,6 +8,12 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import UserContext from "./utils/UserContext";
+
+//provider for redux
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
+
 const AppLayout=()=>{
 const [userName,setUserName]= useState();
 //authentication
@@ -20,6 +26,9 @@ setUserName(data.name)
 },[])
 
   return(
+
+    //we wrap the provider redux
+    <Provider store={appStore}>
     <UserContext.Provider value={{loggedInUser: userName,setUserName}}>
 <div className="app">
   <Header/>
@@ -27,6 +36,8 @@ setUserName(data.name)
 
 </div>
 </UserContext.Provider>
+</Provider>
+
   )
 }
 const appRouter = createBrowserRouter([
@@ -50,6 +61,11 @@ const appRouter = createBrowserRouter([
       // resId is dynami id for each restaruant
       path:"/restaurant/:resId",
       element:<RestaurantMenu/>
+    },
+    {
+      // resId is dynami id for each restaruant
+      path:"/cart",
+      element:<Cart/>
     }
     ],
     errorElement:<Error/>
